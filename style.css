@@ -1,0 +1,17 @@
+body{
+    background:black;
+}
+
+#container{
+    position: absolute;
+    left: 50%;
+    margin-left: -400px; 
+    top: 50%;
+    margin-top: -300px; 
+    padding: 0px;
+}
+
+canvas{
+    display: block;
+}
+
