@@ -1,29 +1,26 @@
-// Create the canvas
-var canvas = document.getElementById("canvas");
-var ctx = canvas.getContext("2d");
-canvas.width = 800;
-canvas.height = 600;//480
-
-var bgImage;
-
-
-function loadAssets () {
-
-  // Background image
-  bgImage = new Image();
-  bgImage.src = "assets/images/background.png";//800x480
-};
-
 function processInput () {
+  if (UP_KEY in keysDown) {
+    background.setY(background.getY() + 2);
+  }
+  if (DOWN_KEY in keysDown) {
+    background.setY(background.getY() - 2);
+  }
+  if (LEFT_KEY in keysDown) {
+    background.setX(background.getX() + 2);
+  }
+  if (RIGHT_KEY in keysDown) {
+    background.setX(background.getX() - 2);
+  }
 
 }
 
 function updateGame ( modifier ) {
-
+//console.log(keysDown)
 };
 
 function renderGame () {
-  ctx.drawImage(bgImage, 0, 0);
+  //ctx.drawImage(bgImage, 0, 0); // Background Image
+  background.render();
 };
 
 function gameLoop () {
@@ -40,10 +37,5 @@ function gameLoop () {
 
 };
 
-// Cross-browser support for requestAnimationFrame
-var w = window;
-requestAnimationFrame = w.requestAnimationFrame || w.webkitRequestAnimationFrame || w.msRequestAnimationFrame || w.mozRequestAnimationFrame;
-
 var then = Date.now();
-loadAssets();
 gameLoop();
